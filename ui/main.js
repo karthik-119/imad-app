@@ -6,7 +6,7 @@ var img=document.getElementById('kar');
 function moveRight()
 {
     marginLeft+=10;
-    img.stle.marginLeft+='px';
+    img.style.marginLeft+='px';
 }
 img.onclick = function()
 {
