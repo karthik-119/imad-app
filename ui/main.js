@@ -1,4 +1,4 @@
-console.log('Loaded!')
+console.log('Loaded!');
 
 var img=document.getElementById('kar');
 var marginLeft=0;
