@@ -5,6 +5,6 @@ element.innerHTML='karthik';
 var img=document.getElementById('kar');
 img.onClick = function()
 {
-    
+    var interval=setInterval(moveLeft,10);
     img.style.marginLeft='100px';
 };
