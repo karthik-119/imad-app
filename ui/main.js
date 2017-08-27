@@ -1,8 +1,8 @@
 console.log('Loaded!');
-var element=document.getDocumentElementById('main-text');
+var element=document.getElementById('main-text');
 element.innerHTML='karthik';
 
-var img=document.getDocumentElementById('kar');
+var img=document.getElementById('kar');
 img.onClick=function()
 {
     
