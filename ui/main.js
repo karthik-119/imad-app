@@ -1,6 +1,4 @@
-console.log('Loaded!');
-var element=document.getElementById('main-text');
-element.innerHTML='karthik';
+console.log('Loaded!')
 
 var img=document.getElementById('kar');
 var marginLeft=0;
