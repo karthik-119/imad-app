@@ -1,14 +1,8 @@
 console.log('Loaded!');
 
 var img=document.getElementById('kar');
-var marginLeft=0;
-function moveRight()
-{
-    marginLeft+=10;
-    img.style.marginLeft+='px';
-}
 img.onclick=function()
 {
-    var interval=setInterval(moveRight,10);
+    img.style.marginLeft='100px';
 
 };
