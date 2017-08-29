@@ -12,7 +12,7 @@ var config =
 };
 var pool = new Pool(config);
 app.get('/test', function (req, res) {
-  pool.query('SELECT * FROM "books"',function(err,result)
+  pool.query('SELECT * FROM books',function(err,result)
   {
       if(err)
       {
