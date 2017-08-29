@@ -40,7 +40,7 @@ app.get('/testdb', function (req, res) {
       if(err)
       res.status(500),send(err.toString());
       else
-      res.send(JSON.stringify());
+      res.send(JSON.stringify(result));
   });
 });
 
