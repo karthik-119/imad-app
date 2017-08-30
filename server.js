@@ -10,18 +10,7 @@ var config =
   port: '5432',
   host:'db.hausra.imad-app.io',
 };
-var pool = new Pool(config);
-app.get('/test', function (req, res) {
-  pool.query('SELECT * FROM books',function(err,result)
-  {
-      if(err)
-      {
-      res.status(500),send(err.toString());
-      }else{
-      res.send(JSON.stringify(result.rows));
-      }
-  });
-});
+
 var app = express();
 app.use(morgan('combined'));
 
