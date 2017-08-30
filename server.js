@@ -8,7 +8,7 @@ var config =
   password:process.env.DB_PASSWORD, //default process.env.PGPASSWORD
   database: 'karthikrockz83', // default process.env.PGDATABASE || process.env.USER
   port: '5432',
-  host:'db.hausra.imad-app.io'
+  host:'db.hausra.imad-app.io',
 };
 var pool = new Pool(config);
 app.get('/test', function (req, res) {
