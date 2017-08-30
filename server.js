@@ -9,7 +9,7 @@ var config =
   database: 'karthikrockz83', // default process.env.PGDATABASE || process.env.USER
   port: '5432',
   host:'db.hausra.imad-app.io'
-}
+};
 var pool = new Pool(config);
 app.get('/test', function (req, res) {
   pool.query('SELECT * FROM books',function(err,result)
