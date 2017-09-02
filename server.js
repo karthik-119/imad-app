@@ -22,6 +22,15 @@ app.get('/', function (req, res) {
 
 var pool = new Pool(config);
 app.get('/test', function (req, res) {
+      pool.query('SELECT *FROM test',function(err,result){
+      alert('entered');
+      if(err)
+      {
+      alert('error');
+      }else{
+      res.send(JSON.stringify(result.rows));
+      }
+  });
 
 });
 app.get('/page1.html', function (req, res) {
