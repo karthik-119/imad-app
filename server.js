@@ -22,15 +22,7 @@ app.get('/', function (req, res) {
 
 var pool = new Pool(config);
 app.get('/test', function (req, res) {
-  pool.query('SELECT *FROM test',function(err,result){
-      alert('entered');
-      if(err)
-      {
-      alert('error');
-      }else{
-      res.send(JSON.stringify(result.rows));
-      }
-  });
+alert('hi');
 });
 app.get('/page1.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'Page1.html'));
