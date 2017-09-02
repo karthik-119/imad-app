@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
-var pool = new Pool({
+var config ={
 
     user: 'karthikrockz83', // default process.env.PGUSER || process.env.USER
    //default process.env.PGPASSWORD
@@ -10,7 +10,7 @@ var pool = new Pool({
   port: '5432',
   host:'db.hausra.imad-app.io',
   password: 'db-karthikrockz83-3566',
-});
+};
 var app = express();
 app.use(morgan('combined'));
 
@@ -19,7 +19,7 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+var pool = new Pool(config);
 app.get('/test', function (req, res) {
       pool.query('SELECT *FROM test',function(err,result){
       if(err)
