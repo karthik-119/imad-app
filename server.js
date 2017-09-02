@@ -2,10 +2,6 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
-
-
-var app = express();
-app.use(morgan('combined'));
 var pool = new Pool({
 
     user: 'karthikrockz83', // default process.env.PGUSER || process.env.USER
@@ -15,6 +11,9 @@ var pool = new Pool({
   host:'db.hausra.imad-app.io',
   password: 'db-karthikrockz83-3566',
 });
+var app = express();
+app.use(morgan('combined'));
+
 
 
 app.get('/', function (req, res) {
