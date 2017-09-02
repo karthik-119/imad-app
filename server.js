@@ -22,6 +22,7 @@ app.get('/', function (req, res) {
 
 var pool = new Pool(config);
 app.get('/test', function (req, res) {
+    alert("entered");
   pool.query('SELECT *FROM test',function(err,result){
       if(err)
       {
