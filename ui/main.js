@@ -1,9 +1,9 @@
 console.log('Loaded!');
 var submit = document.getElementById('submit_btn');
 submit.onClick=function(){
- var request = new XMLHttpRequest();
+ 
  request.onreadystatechange = function(){
-
+var request = new XMLHttpRequest();
     if(request.readyState === XMLHttpRequest.DONE)
     {
        if(request.status === 200){
