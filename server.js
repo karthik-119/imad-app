@@ -59,7 +59,7 @@ function hash(input, salt)
  var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
 return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
 }
-app.post('/createuser', function (req, res) {
+app.get('/createuser', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
   var salt = crypto.RandomBytes(128).toString('hex');
