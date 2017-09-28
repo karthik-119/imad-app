@@ -74,6 +74,29 @@ app.post('/createuser', function (req, res) {
            res.send('User successfully created' + username);
    });  
 });
+app.post('/login', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+    pool.query('SELECT *from "user " WHERE username = $1',[username], function(err, result){
+       if(err)
+         res.status(500).send(err.toString());
+        else
+            {
+            if(result.rows.length === 0)
+              res.status(403).send('No user exists');
+             else
+              {
+               var dbstring = result.rows[0].password;
+               var salt = dbstring.split('$')[2];
+               var hashpassword = hash(password, salt);
+               if(hashpassword === dbstring)
+           res.send('Login Crednetials are correct');
+                else
+               res.send('username/password are incorrect');
+             }
+         }
+});  
+});
 
 
 
