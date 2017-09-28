@@ -9,8 +9,17 @@
 
         Username : <input type="text" id="username"> <br>
         Password : <input type="password" id="password"><br>
-        <input type="button" value="Submit" id="submit"><br>
+        <input type="button" value="Submit" id="submit" onclick="exec()"><br>
         <input type="button" value="Login" id="login">
     </div>
+    <script>
+        function exec()
+        {
+            var u = document.getElementById('username').value;
+            var p = document.getElementById('password').value;
+            console.log(u);
+            console.log(p);
+        }
+    </script>
 </body>
 </html>
