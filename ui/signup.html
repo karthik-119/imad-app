@@ -8,8 +8,8 @@
   
 
      <div class="center">
-        Username : <input type="text" id="username"> <br>
-        Password : <input type="password" id="password"><br>
+        Username : <input type="text" id="username" name="username"> <br>
+        Password : <input type="password" id="password" name="password"><br>
         <input type="button" value="Signup" id="submit" onclick="exec()"><br>
         <input type="button" value="Login" id="login">
       
@@ -21,6 +21,12 @@ var password = document.getElementById('password').value;
 console.log(username);
 console.log(password);
     }
+    <?php
+    $db = pg_connect("host=db.imad.hasura-app.io port=5432 dbname=karthikrockz83 user=karthikrockz83 password=db-karthikrockz83-3566");  
+$query = "INSERT INTO user VALUES ('$_POST[username]','$_POST[password])";  
+$result = pg_query($query);  
+    ?>
    </script>
 </body>
 </html>
+
