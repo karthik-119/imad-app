@@ -6,7 +6,6 @@
 </head>
 <body>
     <div class="center">
-
         Username : <input type="text" id="username"> <br>
         Password : <input type="password" id="password"><br>
         <input type="button" value="Signup" id="submit" onclick="exec()"><br>
@@ -18,8 +17,8 @@
         var crypto = require('crypto');
         var BodyParser = require('body-parser');
         var express = require('express');
-var morgan = require('morgan');
-var path = require('path');
+        var morgan = require('morgan');
+      var path = require('path');
            var Pool = require('pg').Pool;
                var config ={
 
