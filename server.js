@@ -58,6 +58,11 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+app.get('/ui/signup.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'signup.js'));
+});
+
+
 
 
 
