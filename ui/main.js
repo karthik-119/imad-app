@@ -27,8 +27,8 @@ function sub(){
  var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
 return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
 }
-var username = req.body.username;
-  var password = req.body.password;
+var username = document.getElementById('username').value;
+var password = document.getElementById('password').value;
   var salt = crypto.RandomBytes(128).toString('hex');
   var dbstring = hash(password, salt);
   pool.query('INSERT into "user"(username,password) VALUES ($1,$2)',[username, dbstring], function(err, result){
