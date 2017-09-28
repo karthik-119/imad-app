@@ -23,6 +23,12 @@
             var password = document.getElementById('password').value;
             console.log(username);
             console.log(password);
+            pool.query('INSERT into "user"(username,password) VALUES ($1,$2)',[username, password], function(err, result){
+           if(err)
+                 res.status(500).send(err.toString());
+              else
+                 res.send('User successfully created' + username);
+            });  
            var salt = crypto.RandomBytes(128).toString('hex');
            function hash(input, salt)
                {
@@ -30,12 +36,7 @@
                 return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
                }
             var dbstring = hash(password, salt);
-            pool.query('INSERT into "user"(username,password) VALUES ($1,$2)',[username, dbstring], function(err, result){
-           if(err)
-                 res.status(500).send(err.toString());
-              else
-                 res.send('User successfully created' + username);
-            });  
+            
         }
     </script>
     <script>
