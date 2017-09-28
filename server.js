@@ -12,7 +12,7 @@ var config ={
   database: 'karthikrockz83', // default process.env.PGDATABASE || process.env.USER
   port: '5432',
   host:'db.imad.hasura-app.io',
-  password: 'process.env.DB_PASSWORD'
+  password: process.env.DB_PASSWORD
 };
 var app = express();
 app.use(morgan('combined'));
