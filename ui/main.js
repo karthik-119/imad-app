@@ -1,7 +1,6 @@
 console.log('Loaded!');
 var submit = document.getElementById('submit');
-submit.onclick = function()
-{
+submit.onclick = function(){
  var request = new XMLHttpRequest();
  request.onreadystatechange = function(){
 
@@ -15,7 +14,7 @@ submit.onclick = function()
        {
           alert('username/password is incorrect');
        }
-       else if(request.status === 200)
+       else if(request.status === 500)
        {
           alert('Something went wrong on server');
        }
