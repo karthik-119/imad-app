@@ -1,5 +1,4 @@
 console.log('Loaded!');
-window.onload=function(){
     document.getElementById("submit").onclick = function() {
  var request = new XMLHttpRequest();
  request.onreadystatechange = function(){
@@ -21,7 +20,6 @@ console.log(password);
 request.open('POST', 'http://karthikrockz83.imad.hasura-app.io/login',true);
 request.setRequestHeader('Content-Type', 'application/json');
 request.send(JSON.stringify({username:username, password:password}));
-};
 };
 var img=document.getElementById('kar');
 var marginLeft = 0;
