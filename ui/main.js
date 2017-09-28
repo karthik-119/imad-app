@@ -1,7 +1,5 @@
 console.log('Loaded!');
-var submit = document.getElementById('submit');
-
-submit.onclick = function () {
+function exec () {
  var request = new XMLHttpRequest();
  request.onreadystatechange = function(){
 
