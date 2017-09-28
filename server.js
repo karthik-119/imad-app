@@ -57,6 +57,11 @@ app.get('/ui/madi.png', function (req, res) {
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
+function hash(input, salt)
+{
+ var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
+return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
+}
 
 
 
