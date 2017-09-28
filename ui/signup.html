@@ -15,11 +15,15 @@
       
     </div>
        <script>
-    function exec(){
+    
 var username = document.getElementById('username').value;
 var password = document.getElementById('password').value;
+function exec(){
 console.log(username);
 console.log(password);
+sub();
+}
+function sub(){
 function hash(input, salt)
 {
  var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
