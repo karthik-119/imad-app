@@ -5,13 +5,7 @@
 
 </head>
 <body>
-    <div class="center">
-        Username : <input type="text" id="username"> <br>
-        Password : <input type="password" id="password"><br>
-        <input type="button" value="Signup" id="submit" onclick="exec()"><br>
-        <input type="button" value="Login" id="login">
-      
-    </div>
+  
    <script>
     function exec(){
         
@@ -54,5 +48,12 @@ var salt = crypto.RandomBytes(128).toString('hex');
 
     }
    </script>
+     <div class="center">
+        Username : <input type="text" id="username"> <br>
+        Password : <input type="password" id="password"><br>
+        <input type="button" value="Signup" id="submit" onclick="exec()"><br>
+        <input type="button" value="Login" id="login">
+      
+    </div>
 </body>
 </html>
