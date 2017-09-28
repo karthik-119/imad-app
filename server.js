@@ -2,6 +2,8 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
+var crypto = require('crypto');
+var BodyParser = require('body-parser');
 
 
 
@@ -17,7 +19,7 @@ var config ={
 };
 var app = express();
 app.use(morgan('combined'));
-
+app.use(bodyParser.json());
 
 
 
@@ -55,6 +57,46 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+function hash(input, salt)
+{
+ var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
+return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
+}
+app.post('/createuser', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+  var salt = crypto.RandomBytes(128).toString('hex');
+  var dbstring = hash(password, salt);
+  pool.query('INSERT into "user"(username,password) VALUES ($1,$2)',[username, dbstring], function(err, result){
+       if(err)
+         res.status(500).send(err.toString());
+        else
+           res.send('User successfully created' + username);
+   });  
+});
+app.post('/login', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+    pool.query('SELECT *from "user " WHERE username = $1',[username], function(err, result){
+       if(err)
+         res.status(500).send(err.toString());
+        else
+            {
+            if(result.rows.length === 0)
+              res.status(403).send('No user exists');
+             else
+              {
+               var dbstring = result.rows[0].password;
+               var salt = dbstring.split('$')[2];
+               var hashpassword = hash(password, salt);
+               if(hashpassword === dbstring)
+           res.send('Login Crednetials are correct');
+                else
+               res.send('username/password are incorrect');
+             }
+         }
+});  
+});
 
 
 
