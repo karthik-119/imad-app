@@ -5,8 +5,6 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var BodyParser = require('body-parser');
 
-
-
 var config ={
 
     user: 'karthikrockz83', // default process.env.PGUSER || process.env.USER
@@ -18,11 +16,6 @@ var config ={
 };
 var app = express();
 app.use(morgan('combined'));
-app.use(body-parser(json));
-
-
-
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
