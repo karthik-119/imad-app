@@ -20,13 +20,25 @@ var username = document.getElementById('username').value;
 var password = document.getElementById('password').value;
 console.log(username);
 console.log(password);
+function hash(input, salt)
+{
+ var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
+return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
+}
+
+
+  var salt = crypto.RandomBytes(128).toString('hex');
+  var dbstring = hash(password, salt);
+  pool.query('INSERT into "user"(username,password) VALUES ($1,$2)',[username, dbstring], function(err, result){
+       if(err)
+         res.status(500).send(err.toString());
+        else
+           res.send('User successfully created' + username);
+   });  
+
     }
-    <?php
-    $db = pg_connect("host=db.imad.hasura-app.io port=5432 dbname=karthikrockz83 user=karthikrockz83 password=db-karthikrockz83-3566");  
-$query = "INSERT INTO user VALUES ('$_POST[username]','$_POST[password])";  
-$result = pg_query($query);  
-    ?>
+  
    </script>
 </body>
 </html>
-
+ 
