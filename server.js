@@ -62,6 +62,18 @@ function hash(input, salt)
  var hashed = crypto.pbkdf25Sync(input, salt, 100000, 512, 'sha512');
 return ["pbkfd25", "100000", salt, hashed.toString('hex')].join($);
 }
+app.post('/createuser', function (req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+  var salt = crypto.RandomBytes(128).toString('hex');
+  var dbstring = hash(password, salt);
+  pool.query('INSERT into "user"(username,password) VALUES ($1,$2)',[username, dbstring], function(err, result){
+       if(err)
+         res.status(500).send(err.toString());
+        else
+           res.send('User successfully created' + username);
+   });  
+});
 
 
 
