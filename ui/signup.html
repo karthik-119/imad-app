@@ -8,18 +8,20 @@
   
 
      <div class="center">
+         <form name="myform" action="store.php" method="post">
         Username : <input type="text" id="username" name="username"> <br>
         Password : <input type="password" id="password" name="password"><br>
         <input type="submit" value="Signup" id='submit' onclick=sub() ><br>
-        <input type="submit" value="login" id="login" onclick=exec()>
-      
+        <input type="submit" value="login" id="login" onclick=exec()><br>
+        <a href="javascript: submitform()">Search</a>
+      </form>
     </div>
     <script type="text/javascript" src="ui/signup.js"></script>
     <script>
-     
+         
         function sub()
         {  
-        
+            document.myform.submit();
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             console.log(username);
